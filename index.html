@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> The Gambling Game </title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <h1 class="header"> The Gambling Game </h1>
+    <div class="chipDisplay" id="chipsDisplay"> </div>
+    <div class="gainChip" id="findChip">
+        <button id="freeChip"> Find 1 Chip </button>
+    </div>
+    <div class="miniGames" id="miniGames">
+        <h3> "Money-Making" Games: </h3>
+        <h4> Coin Flip: </h4>
+        <p id="totWin"></p>
+        <p id="totLos"></p>
+        <button id="coinWag1"> Wager 1 Chip </button>
+        <br>
+        <button id="coinWag5" class="hiddenButton"> Wager 5 Chips </button>
+    </div>
+    <div class="upgrades" id="upgrades">
+        <h3> Upgrades: </h3>
+        <p> Spend your hard earned chips here! </p>
+        <button id="upCoinRew1"> Increase CoinFlip's Chip Reward by 1 Per Chip Wagered </button>
+        <br>
+        <button id="upCoinWager1"> Add CoinFlip Wager of 5 </button>
+    </div>
+    <div class="tips">
+        <p> You can never go below 1 chip! Try it! </p>
+    </div>
+
+    <div class="footer">
+        <p class="creator"> This game was created by jkbmnrd. </p>
+    </div>
+    
+    <script type="text/javascript" src="coinFlip.js"></script>
+    <script type="text/javascript" src="newChip.js"></script>
+    <script>
+
+    // Initialize game variables
+    let chips = 0;
+    let cFlipOdds = 2;
+    let cFlipReward = 2;
+    let totWins = 0;
+    let totLoss = 0;
+
+    // TF Variables 
+    let upgradesUnlocked = 0;
+    let firstChip = 0;
+
+    // Counter Displays
+    totWin.textContent = `Total Winnings: ${totWins}`;
+    totLos.textContent = `Total Losses: ${totLoss}`;
+    chipsDisplay.textContent = `Chips: ${chips}`;
+
+    // Pickup first chip, increment display counter, and create coinflip minigame
+    if (firstChip === 0) {
+        findChip.addEventListener('click', () => {
+            newChip();
+            chipsDisplay.textContent = `Chips: ${chips}`;
+            firstChip = 1;
+            });
+    };
+
+    // Coinflip Minigame
+    coinWag1.addEventListener('click', () => {
+        let coinWager = 1;
+        fiftyFifty(1);
+    });
+    coinWag5.addEventListener('click', () => {
+        let coinWager = 5;
+        fiftyFifty(5);
+    });
+
+    // Upgrades
+    upCoinRew1.addEventListener('click', () => {
+        if (chips >= 5) {
+            cFlipReward++;
+            chips -= 4;
+            chipsDisplay.textContent = `Chips: ${chips}`;
+            upCoinRew1.style.display = 'none';
+        };
+    });
+
+    upCoinWager1.addEventListener('click', () => {
+        if (chips >= 25) {
+            coinWag5.style.display = 'inline';
+            chips -= 24;
+            chipsDisplay.textContent = `Chips: ${chips}`;
+            upCoinWager1.style.display = 'none';
+        }
+    })
+
+
+</script>
+
+</body>
+</html>

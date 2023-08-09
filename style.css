@@ -1,0 +1,69 @@
+* {
+    background-color: darkgrey;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+.header {
+    padding: 30px;
+    text-align: center;
+    font-size: 35px; 
+}
+
+.chipDisplay {
+    border: 2px solid  black; 
+    border-radius: 5px;
+    float: center;
+    padding: 10px;
+}
+
+.gainChip {
+    border: 2px solid  black; 
+    border-radius: 5px;
+    float: center;
+    padding: 10px;
+}
+
+.miniGames {
+    border: 2px solid  black; 
+    border-radius: 5px;
+    width: 25%;
+    float: right;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.upgrades {
+    border: 2px solid  black; 
+    border-radius: 5px;
+    width: 25%;
+    float: left;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.hiddenButton {
+    display: none;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 600px) {
+    .column.side, .column.middle {
+      width: 100%;
+    }
+}
+
+.footer {
+    height: 100px;
+    padding: 10px;
+    text-align: center;
+  }
