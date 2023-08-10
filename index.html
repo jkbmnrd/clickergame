@@ -20,6 +20,7 @@
         <h4> Coin Flip: </h4>
         <p id="totWin"></p>
         <p id="totLos"></p>
+        <p id="totFlipRew"></p>
         <button id="coinWag1"> Wager 1 Chip </button>
         <br>
         <button id="coinWag5" class="hiddenButton"> Wager 5 Chips </button>
@@ -27,12 +28,14 @@
     <div class="upgrades" id="upgrades">
         <h3> Upgrades: </h3>
         <p> Spend your hard earned chips here! </p>
-        <button id="upCoinRew1"> Increase CoinFlip's Chip Reward by 1 Per Chip Wagered </button>
+        <button id="upCoinRew1"> Increase Coin Flip's Reward by 1 CPCW (Cost: 5 Chips) </button>
         <br>
-        <button id="upCoinWager1"> Add CoinFlip Wager of 5 </button>
+        <button id="upCoinWager1"> Increase Coin Flip Wager (Cost: 25 Chips) </button>
     </div>
     <div class="tips">
         <p> You can never go below 1 chip! Try it! </p>
+        <p> If at first you don't succeed, you failed! </p>
+        <p> Chips Per Chip Wagered (CPCW) is a metric upgrades use! For every 1 chip wagered, a win will award the CPCW. The starting CPCW is 2, meaning you will wager 1 chip, for the possible reward of 2 chips. </p>
     </div>
 
     <div class="footer">
@@ -57,6 +60,7 @@
     // Counter Displays
     totWin.textContent = `Total Winnings: ${totWins}`;
     totLos.textContent = `Total Losses: ${totLoss}`;
+    totFlipRew.textContent = `CPCW: ${cFlipReward}`;
     chipsDisplay.textContent = `Chips: ${chips}`;
 
     // Pickup first chip, increment display counter, and create coinflip minigame
@@ -83,6 +87,7 @@
         if (chips >= 5) {
             cFlipReward++;
             chips -= 4;
+            totFlipRew.textContent = `CPCW: ${cFlipReward}`;
             chipsDisplay.textContent = `Chips: ${chips}`;
             upCoinRew1.style.display = 'none';
         };
