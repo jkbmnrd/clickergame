@@ -28,7 +28,11 @@
     <div class="upgrades" id="upgrades">
         <h3> Upgrades: </h3>
         <p> Spend your hard earned chips here! </p>
-        <button id="upCoinRew1"> Increase Coin Flip's Reward by 1 CPCW (Cost: 5 Chips) </button>
+        <button id="upCoinRew1"> Increase Coin Flip's Reward by 50% (Cost: 5 Chips) </button>
+        <br>
+        <button id="upCoinRew2"> Increase Coin Flip's Reward by 50% (Cost: 50 Chips) </button>
+        <br>
+        <button id="upCoinRew3"> Increase Coin Flip's Reward by 50% (Cost: 500 Chips) </button>
         <br>
         <button id="upCoinWager1"> Increase Coin Flip Wager (Cost: 25 Chips) </button>
     </div>
@@ -42,68 +46,7 @@
         <p class="creator"> This game was created by jkbmnrd. </p>
     </div>
     
-    <script type="text/javascript" src="coinFlip.js"></script>
-    <script type="text/javascript" src="newChip.js"></script>
-    <script>
-
-    // Initialize game variables
-    let chips = 0;
-    let cFlipOdds = 2;
-    let cFlipReward = 2;
-    let totWins = 0;
-    let totLoss = 0;
-
-    // TF Variables 
-    let upgradesUnlocked = 0;
-    let firstChip = 0;
-
-    // Counter Displays
-    totWin.textContent = `Total Winnings: ${totWins}`;
-    totLos.textContent = `Total Losses: ${totLoss}`;
-    totFlipRew.textContent = `CPCW: ${cFlipReward}`;
-    chipsDisplay.textContent = `Chips: ${chips}`;
-
-    // Pickup first chip, increment display counter, and create coinflip minigame
-    if (firstChip === 0) {
-        findChip.addEventListener('click', () => {
-            newChip();
-            chipsDisplay.textContent = `Chips: ${chips}`;
-            firstChip = 1;
-            });
-    };
-
-    // Coinflip Minigame
-    coinWag1.addEventListener('click', () => {
-        let coinWager = 1;
-        fiftyFifty(1);
-    });
-    coinWag5.addEventListener('click', () => {
-        let coinWager = 5;
-        fiftyFifty(5);
-    });
-
-    // Upgrades
-    upCoinRew1.addEventListener('click', () => {
-        if (chips >= 5) {
-            cFlipReward++;
-            chips -= 4;
-            totFlipRew.textContent = `CPCW: ${cFlipReward}`;
-            chipsDisplay.textContent = `Chips: ${chips}`;
-            upCoinRew1.style.display = 'none';
-        };
-    });
-
-    upCoinWager1.addEventListener('click', () => {
-        if (chips >= 25) {
-            coinWag5.style.display = 'inline';
-            chips -= 24;
-            chipsDisplay.textContent = `Chips: ${chips}`;
-            upCoinWager1.style.display = 'none';
-        }
-    })
-
-
-</script>
+    <script type="text/javascript" src="app.js"></script>
 
 </body>
 </html>
